@@ -1,0 +1,110 @@
+.char-tile {
+  @include flex-center;
+  flex-direction: column;
+  gap: $space-1;
+  padding: $space-3 $space-2;
+  border-radius: $radius-md;
+  border: 2px solid $color-border;
+  background: $color-surface;
+  cursor: pointer;
+  transition: transform $transition-spring, box-shadow $transition-base, border-color $transition-base, background-color $transition-fast;
+  position: relative;
+  min-height: 72px;
+
+  @include focus-ring;
+
+  &:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: $shadow-card;
+    border-color: $color-teal;
+  }
+
+  &__kana {
+    font-family: $font-display;
+    font-size: $font-size-jp-lg;
+    font-weight: $font-weight-bold;
+    color: $color-text;
+    line-height: 1;
+  }
+
+  &__romaji {
+    font-size: $font-size-xs;
+    color: $color-text-muted;
+    font-weight: $font-weight-medium;
+    letter-spacing: 0.03em;
+  }
+
+  // SELECTED STATE — spring pop animation
+  &--selected {
+    border-color: $color-teal;
+    background: tint($color-mint, 25%);
+    animation: tile-pop 0.35s $transition-spring;
+  }
+
+  // LEARNED STATE — persistent teal border + check
+  &--learned {
+    border-color: $color-teal;
+    background: tint($color-mint, 20%);
+
+    &::after {
+      content: '✓';
+      position: absolute;
+      top: 2px;
+      right: 4px;
+      font-size: 0.6rem;
+      color: $color-teal;
+      font-weight: $font-weight-bold;
+    }
+  }
+
+  // EMPTY PLACEHOLDER (for chart spacing)
+  &--empty {
+    background: transparent;
+    border-color: transparent;
+    pointer-events: none;
+  }
+}
+
+@keyframes tile-pop {
+  0%   { transform: scale(1); }
+  50%  { transform: scale(1.15); }
+  100% { transform: scale(1); }
+}
+
+// Chart grid
+.char-chart {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+
+  &__table {
+    min-width: 340px;
+  }
+
+  &__row {
+    display: grid;
+    grid-template-columns: 2rem repeat(5, 1fr);
+    gap: $space-2;
+    margin-bottom: $space-2;
+    align-items: center;
+  }
+
+  &__row-label {
+    font-size: $font-size-xs;
+    font-weight: $font-weight-bold;
+    color: $color-text-muted;
+    text-align: center;
+    writing-mode: horizontal-tb;
+  }
+
+  &__grid {
+    display: contents;
+  }
+
+  // Practice mode — hide romaji
+  &--practice-mode {
+    .char-tile__romaji {
+      visibility: hidden;
+    }
+  }
+}

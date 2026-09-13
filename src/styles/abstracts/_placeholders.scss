@@ -1,0 +1,29 @@
+// ============================================================
+// YURURI CAFE — PLACEHOLDERS
+// ============================================================
+
+%card-hover {
+  transition: transform $transition-spring, box-shadow $transition-base;
+
+  &:hover {
+    transform: translateY(-4px) scale(1.01);
+    box-shadow: $shadow-card-hover;
+  }
+}
+
+%tag {
+  display: inline-flex;
+  align-items: center;
+  padding: $space-1 $space-3;
+  border-radius: $radius-full;
+  font-size: $font-size-xs;
+  font-weight: $font-weight-medium;
+  font-family: $font-primary;
+}
+
+%section-heading {
+  font-family: $font-display;
+  font-weight: $font-weight-bold;
+  color: $color-text;
+  line-height: $line-height-tight;
+}

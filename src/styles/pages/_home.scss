@@ -1,0 +1,112 @@
+.hero {
+  padding-block: $space-16 $space-12;
+  background: linear-gradient(160deg, tint($color-mint, 30%) 0%, tint($color-lavender, 30%) 50%, tint($color-dusty-rose, 30%) 100%);
+  border-bottom: 1px solid $color-border;
+
+  &__inner {
+    @include container;
+    display: grid;
+    gap: $space-10;
+    align-items: center;
+
+    @include respond-to(lg) {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  &__content {
+    @include flex-col;
+    gap: $space-5;
+  }
+
+  &__eyebrow {
+    font-size: $font-size-sm;
+    font-weight: $font-weight-medium;
+    color: $color-plum;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  &__heading {
+    font-family: $font-display;
+    font-size: clamp(2rem, 6vw, 3.5rem);
+    font-weight: $font-weight-bold;
+    color: $color-text;
+    line-height: $line-height-tight;
+
+    span {
+      color: $color-plum;
+    }
+  }
+
+  &__subheading {
+    font-size: $font-size-md;
+    color: $color-text-muted;
+    line-height: $line-height-relaxed;
+    max-width: 480px;
+  }
+
+  &__cta {
+    @include flex-center;
+    gap: $space-3;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+  }
+
+  &__visual {
+    @include flex-center;
+    flex-direction: column;
+    gap: $space-6;
+  }
+}
+
+// Module grid on home
+.modules-section {
+  padding-block: $space-16;
+
+  &__inner {
+    @include container;
+  }
+
+  &__grid {
+    display: grid;
+    gap: $space-4;
+    grid-template-columns: 1fr;
+
+    @include respond-to(sm) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include respond-to(lg) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+}
+
+// Kana preview strip on home
+.kana-strip {
+  display: flex;
+  gap: $space-3;
+  justify-content: center;
+  flex-wrap: wrap;
+
+  &__char {
+    @include flex-center;
+    flex-direction: column;
+    width: 64px;
+    height: 64px;
+    border-radius: $radius-lg;
+    background: rgba($color-surface, 0.8);
+    border: 1.5px solid $color-border;
+    font-family: $font-display;
+    font-size: 1.75rem;
+    font-weight: $font-weight-bold;
+    color: $color-text;
+    transition: transform $transition-spring;
+
+    &:hover {
+      transform: translateY(-4px) scale(1.1);
+      box-shadow: $shadow-card;
+    }
+  }
+}

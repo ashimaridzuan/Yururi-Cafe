@@ -1,0 +1,37 @@
+.footer {
+  background: $color-surface-alt;
+  border-top: 1px solid $color-border;
+  padding-block: $space-8;
+  margin-top: auto;
+
+  &__inner {
+    @include container;
+    display: grid;
+    gap: $space-6;
+    text-align: center;
+
+    @include respond-to(md) {
+      grid-template-columns: 1fr auto;
+      text-align: left;
+      align-items: center;
+    }
+  }
+
+  &__brand {
+    font-family: $font-display;
+    font-size: $font-size-lg;
+    font-weight: $font-weight-bold;
+    color: $color-plum;
+    margin-bottom: $space-1;
+  }
+
+  &__tagline {
+    font-size: $font-size-sm;
+    color: $color-text-muted;
+  }
+
+  &__credits {
+    font-size: $font-size-xs;
+    color: $color-text-muted;
+  }
+}

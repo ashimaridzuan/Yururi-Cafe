@@ -1,0 +1,41 @@
+// ============================================================
+// YURURI CAFE — MAIN SASS ENTRY (7-1 Architecture)
+// ============================================================
+
+// ABSTRACTS (must be first — other files inherit via additionalData)
+@import 'abstracts/variables';
+@import 'abstracts/mixins';
+@import 'abstracts/functions';
+@import 'abstracts/placeholders';
+
+// BASE
+@import 'base/reset';
+@import 'base/typography';
+@import 'base/base';
+
+// LAYOUT
+@import 'layout/header';
+@import 'layout/nav';
+@import 'layout/footer';
+@import 'layout/grid';
+
+// COMPONENTS
+@import 'components/button';
+@import 'components/card';
+@import 'components/flashcard';
+@import 'components/char-tile';
+@import 'components/mascot';
+@import 'components/badge';
+@import 'components/progress-bar';
+@import 'components/tip-bubble';
+@import 'components/quiz';
+
+// PAGES
+@import 'pages/home';
+@import 'pages/hiragana';
+@import 'pages/vocabulary';
+@import 'pages/grammar';
+@import 'pages/quiz-page';
+
+// THEMES
+@import 'themes/cafe-theme';

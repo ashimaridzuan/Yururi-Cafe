@@ -1,0 +1,40 @@
+.progress-bar {
+  width: 100%;
+
+  &__track {
+    height: 8px;
+    background: rgba($color-indigo, 0.1);
+    border-radius: $radius-full;
+    overflow: hidden;
+  }
+
+  &__fill {
+    height: 100%;
+    border-radius: $radius-full;
+    background: linear-gradient(90deg, $color-teal, $color-indigo);
+    transition: width 0.6s ease;
+  }
+
+  &__meta {
+    @include flex-between;
+    margin-top: $space-1;
+  }
+
+  &__label {
+    font-size: $font-size-xs;
+    color: $color-text-muted;
+  }
+
+  &__percent {
+    font-size: $font-size-xs;
+    font-weight: $font-weight-bold;
+    color: $color-plum;
+  }
+
+  // COMPACT (for cards)
+  &--compact {
+    .progress-bar__track {
+      height: 5px;
+    }
+  }
+}

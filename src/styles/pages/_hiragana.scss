@@ -1,0 +1,119 @@
+.kana-page {
+  padding-block: $space-8 $space-16;
+
+  &__inner {
+    @include container;
+  }
+
+  &__header {
+    margin-bottom: $space-8;
+    display: flex;
+    flex-direction: column;
+    gap: $space-4;
+
+    @include respond-to(md) {
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+    }
+  }
+
+  &__title {
+    font-family: $font-display;
+    font-size: $font-size-jp-xl;
+    color: $color-teal;
+    line-height: 1;
+  }
+
+  &__title-en {
+    font-size: $font-size-2xl;
+    color: $color-text;
+  }
+
+  &__controls {
+    @include flex-center;
+    gap: $space-3;
+    flex-wrap: wrap;
+  }
+
+  &__progress {
+    margin-bottom: $space-8;
+    padding: $space-4;
+    background: tint($color-mint, 40%);
+    border-radius: $radius-lg;
+    border: 1px solid rgba($color-teal, 0.2);
+  }
+
+  &__section-label {
+    font-size: $font-size-sm;
+    font-weight: $font-weight-bold;
+    color: $color-text-muted;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: $space-3;
+    padding-bottom: $space-2;
+    border-bottom: 1px solid $color-border;
+  }
+
+  &__group {
+    margin-bottom: $space-8;
+  }
+}
+
+// Single character detail panel
+.char-detail {
+  padding: $space-8;
+  background: $color-surface;
+  border-radius: $radius-xl;
+  box-shadow: $shadow-lg;
+  border: 1px solid $color-border;
+  text-align: center;
+
+  &__kana-display {
+    font-family: $font-display;
+    font-size: clamp(4rem, 15vw, 8rem);
+    font-weight: $font-weight-bold;
+    color: $color-text;
+    line-height: 1;
+    margin-bottom: $space-4;
+  }
+
+  &__romaji {
+    font-size: $font-size-3xl;
+    color: $color-plum;
+    font-weight: $font-weight-bold;
+    margin-bottom: $space-6;
+  }
+
+  &__example-word {
+    padding: $space-4;
+    background: tint($color-mint, 40%);
+    border-radius: $radius-lg;
+    margin-bottom: $space-4;
+
+    strong {
+      display: block;
+      font-family: $font-display;
+      font-size: $font-size-xl;
+      color: $color-text;
+    }
+
+    span {
+      font-size: $font-size-sm;
+      color: $color-text-muted;
+    }
+  }
+
+  &__stroke-hint {
+    font-size: $font-size-sm;
+    color: $color-text-muted;
+    font-style: italic;
+  }
+
+  &__nav {
+    @include flex-between;
+    margin-top: $space-6;
+    padding-top: $space-4;
+    border-top: 1px solid $color-border;
+  }
+}

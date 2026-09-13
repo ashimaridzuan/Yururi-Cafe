@@ -1,0 +1,106 @@
+.flashcard {
+  perspective: 1000px;
+  width: 100%;
+  max-width: 380px;
+  height: 240px;
+  cursor: pointer;
+  margin-inline: auto;
+
+  @include respond-to(md) {
+    height: 280px;
+  }
+
+  @include focus-ring;
+
+  &__inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform $transition-flip;
+  }
+
+  &--flipped &__inner {
+    transform: rotateY(180deg);
+  }
+
+  &__front,
+  &__back {
+    position: absolute;
+    inset: 0;
+    @include flex-center;
+    flex-direction: column;
+    gap: $space-3;
+    border-radius: $radius-xl;
+    border: 2px solid $color-border;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    padding: $space-6;
+    box-shadow: $shadow-card;
+    transition: background-color $transition-base, border-color $transition-base;
+  }
+
+  &__front {
+    background: $color-surface;
+  }
+
+  &__back {
+    background: tint($color-mint, 30%);
+    transform: rotateY(180deg);
+  }
+
+  &__kana {
+    font-family: $font-display;
+    font-size: $font-size-jp-xl;
+    font-weight: $font-weight-bold;
+    color: $color-text;
+    line-height: 1;
+  }
+
+  &__romaji {
+    font-size: $font-size-xl;
+    color: $color-plum;
+    font-weight: $font-weight-medium;
+  }
+
+  &__hint {
+    font-size: $font-size-sm;
+    color: $color-text-muted;
+    text-align: center;
+  }
+
+  &__example {
+    text-align: center;
+
+    strong {
+      display: block;
+      font-family: $font-display;
+      font-size: $font-size-lg;
+    }
+
+    span {
+      font-size: $font-size-sm;
+      color: $color-text-muted;
+    }
+  }
+
+  // FEEDBACK STATES
+  &--correct &__front {
+    background: tint($color-success, 40%);
+    border-color: $color-success;
+  }
+
+  &--incorrect &__front {
+    background: tint($color-error, 40%);
+    border-color: $color-error;
+  }
+}
+
+// Flip hint label
+.flashcard-hint {
+  text-align: center;
+  font-size: $font-size-xs;
+  color: $color-text-muted;
+  margin-top: $space-2;
+  user-select: none;
+}

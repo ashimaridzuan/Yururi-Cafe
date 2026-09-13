@@ -1,0 +1,130 @@
+.vocab-page {
+  padding-block: $space-8 $space-16;
+
+  &__inner {
+    @include container;
+  }
+}
+
+.vocab-set-nav {
+  display: flex;
+  gap: $space-2;
+  flex-wrap: wrap;
+  margin-bottom: $space-8;
+
+  &__item {
+    @include flex-center;
+    gap: $space-2;
+    padding: $space-2 $space-4;
+    border-radius: $radius-full;
+    border: 2px solid $color-border;
+    background: $color-surface;
+    font-size: $font-size-sm;
+    font-weight: $font-weight-medium;
+    cursor: pointer;
+    transition: all $transition-base;
+    text-decoration: none;
+    color: $color-text;
+
+    @include focus-ring;
+
+    &:hover {
+      border-color: $color-teal;
+      background: tint($color-mint, 40%);
+    }
+
+    &--active {
+      background: $color-plum;
+      border-color: $color-plum;
+      color: $color-text-light;
+    }
+  }
+
+  &__icon {
+    font-size: $font-size-md;
+  }
+}
+
+.vocab-grid {
+  display: grid;
+  gap: $space-4;
+
+  @include respond-to(md) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include respond-to(lg) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.vocab-card {
+  background: $color-surface;
+  border-radius: $radius-lg;
+  border: 2px solid $color-border;
+  padding: $space-5;
+  transition: transform $transition-spring, box-shadow $transition-base;
+
+  @include focus-ring;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: $shadow-card-hover;
+  }
+
+  &__japanese {
+    font-family: $font-display;
+    font-size: $font-size-jp-lg;
+    font-weight: $font-weight-bold;
+    color: $color-text;
+    line-height: 1.2;
+    margin-bottom: $space-1;
+  }
+
+  &__romaji {
+    font-size: $font-size-sm;
+    color: $color-text-muted;
+    margin-bottom: $space-3;
+    font-style: italic;
+  }
+
+  &__english {
+    font-size: $font-size-md;
+    font-weight: $font-weight-medium;
+    color: $color-text;
+    margin-bottom: $space-4;
+  }
+
+  &__example {
+    padding: $space-3;
+    background: $color-surface-alt;
+    border-radius: $radius-md;
+    font-size: $font-size-sm;
+    border-left: 3px solid $color-teal;
+
+    strong {
+      display: block;
+      font-family: $font-display;
+      color: $color-text;
+      margin-bottom: $space-1;
+    }
+
+    em {
+      display: block;
+      color: $color-text-muted;
+      font-style: normal;
+    }
+  }
+
+  &__footer {
+    @include flex-between;
+    margin-top: $space-4;
+    padding-top: $space-3;
+    border-top: 1px solid $color-border;
+  }
+
+  &--learned {
+    border-color: $color-teal;
+    background: tint($color-mint, 25%);
+  }
+}

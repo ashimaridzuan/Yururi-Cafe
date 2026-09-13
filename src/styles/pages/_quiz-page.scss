@@ -1,0 +1,88 @@
+.quiz-page {
+  padding-block: $space-8 $space-16;
+
+  &__inner {
+    @include container;
+    max-width: 700px;
+  }
+
+  &__mode-grid {
+    display: grid;
+    gap: $space-4;
+
+    @include respond-to(md) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  &__mode-card {
+    @include flex-col;
+    align-items: center;
+    gap: $space-3;
+    padding: $space-6;
+    border-radius: $radius-xl;
+    border: 2px solid $color-border;
+    background: $color-surface;
+    cursor: pointer;
+    text-align: center;
+    transition: transform $transition-spring, box-shadow $transition-base, border-color $transition-fast;
+    text-decoration: none;
+    color: inherit;
+
+    @include focus-ring;
+
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: $shadow-card-hover;
+      border-color: $color-teal;
+    }
+
+    &--active {
+      border-color: $color-plum;
+      background: tint($color-mauve, 30%);
+    }
+  }
+
+  &__mode-icon {
+    font-size: 2.5rem;
+  }
+
+  &__mode-title {
+    font-family: $font-display;
+    font-size: $font-size-lg;
+    font-weight: $font-weight-bold;
+  }
+
+  &__mode-desc {
+    font-size: $font-size-sm;
+    color: $color-text-muted;
+    line-height: $line-height-relaxed;
+  }
+}
+
+.quiz-session {
+  padding-block: $space-8 $space-16;
+
+  &__inner {
+    @include container;
+    max-width: 600px;
+  }
+
+  &__header {
+    @include flex-between;
+    margin-bottom: $space-6;
+  }
+
+  &__back {
+    @include flex-center;
+    gap: $space-2;
+    font-size: $font-size-sm;
+    color: $color-text-muted;
+    cursor: pointer;
+    transition: color $transition-fast;
+
+    @include focus-ring;
+
+    &:hover { color: $color-text; }
+  }
+}

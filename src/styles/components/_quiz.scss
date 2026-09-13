@@ -1,0 +1,189 @@
+.quiz {
+  &__question {
+    font-family: $font-display;
+    font-size: $font-size-jp-xl;
+    font-weight: $font-weight-bold;
+    text-align: center;
+    color: $color-text;
+    padding: $space-8;
+    background: tint($color-lavender, 40%);
+    border-radius: $radius-xl;
+    margin-bottom: $space-6;
+    border: 2px solid rgba($color-indigo, 0.15);
+    line-height: 1.2;
+  }
+
+  &__question-label {
+    font-size: $font-size-sm;
+    color: $color-text-muted;
+    font-family: $font-primary;
+    display: block;
+    margin-bottom: $space-2;
+    font-weight: $font-weight-regular;
+  }
+
+  &__options {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: $space-3;
+  }
+
+  &__option {
+    padding: $space-4;
+    border-radius: $radius-lg;
+    border: 2px solid $color-border;
+    background: $color-surface;
+    font-size: $font-size-md;
+    font-family: $font-display;
+    cursor: pointer;
+    text-align: center;
+    transition: transform $transition-spring, background-color $transition-fast, border-color $transition-fast;
+
+    @include focus-ring;
+
+    &:hover:not(:disabled) {
+      border-color: $color-teal;
+      background: tint($color-mint, 40%);
+      transform: translateY(-2px);
+    }
+
+    &--selected {
+      border-color: $color-slate-blue;
+      background: tint($color-lavender, 30%);
+    }
+
+    &--correct {
+      border-color: $color-success;
+      background: tint($color-success, 55%);
+      color: shade($color-success, 30%);
+      font-weight: $font-weight-bold;
+    }
+
+    &--incorrect {
+      border-color: $color-error;
+      background: tint($color-error, 55%);
+      color: shade($color-error, 25%);
+    }
+
+    &:disabled {
+      cursor: default;
+    }
+  }
+
+  &__feedback {
+    margin-top: $space-4;
+    padding: $space-4;
+    border-radius: $radius-lg;
+    font-size: $font-size-sm;
+    font-weight: $font-weight-medium;
+    text-align: center;
+
+    &--correct {
+      background: tint($color-success, 55%);
+      color: shade($color-success, 30%);
+      border: 1px solid rgba($color-success, 0.3);
+    }
+
+    &--incorrect {
+      background: tint($color-error, 55%);
+      color: shade($color-error, 20%);
+      border: 1px solid rgba($color-error, 0.3);
+    }
+  }
+
+  &__counter {
+    text-align: center;
+    font-size: $font-size-sm;
+    color: $color-text-muted;
+    margin-bottom: $space-4;
+  }
+}
+
+// Matching game
+.matching {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: $space-4;
+
+  &__column {
+    @include flex-col;
+    gap: $space-2;
+  }
+
+  &__item {
+    padding: $space-3 $space-4;
+    border-radius: $radius-md;
+    border: 2px solid $color-border;
+    background: $color-surface;
+    text-align: center;
+    cursor: pointer;
+    font-family: $font-display;
+    font-size: $font-size-lg;
+    transition: transform $transition-spring, border-color $transition-fast, background-color $transition-fast;
+
+    @include focus-ring;
+
+    &:hover:not(:disabled) {
+      border-color: $color-teal;
+      transform: scale(1.02);
+    }
+
+    &--active {
+      border-color: $color-indigo;
+      background: tint($color-lavender, 30%);
+    }
+
+    &--matched {
+      border-color: $color-success;
+      background: tint($color-success, 55%);
+      cursor: default;
+      pointer-events: none;
+    }
+
+    &--wrong {
+      animation: shake 0.4s ease;
+      border-color: $color-error;
+      background: tint($color-error, 55%);
+    }
+  }
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  20%      { transform: translateX(-5px); }
+  60%      { transform: translateX(5px); }
+  80%      { transform: translateX(-3px); }
+}
+
+// Result screen
+.quiz-result {
+  text-align: center;
+  padding: $space-8;
+
+  &__score {
+    font-family: $font-display;
+    font-size: 4rem;
+    font-weight: $font-weight-bold;
+    color: $color-plum;
+    line-height: 1;
+  }
+
+  &__label {
+    font-size: $font-size-lg;
+    color: $color-text-muted;
+    margin-top: $space-2;
+  }
+
+  &__message {
+    margin-top: $space-6;
+    font-size: $font-size-md;
+    line-height: $line-height-relaxed;
+  }
+
+  &__actions {
+    @include flex-center;
+    gap: $space-3;
+    margin-top: $space-8;
+    flex-wrap: wrap;
+  }
+}

@@ -1,0 +1,61 @@
+.app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.app__main {
+  flex: 1;
+  padding-top: $header-height;
+}
+
+// Page transition
+.page {
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 0.35s ease, transform 0.35s ease;
+
+  &--visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// Generic container
+.container {
+  @include container;
+}
+
+// Section spacing
+.section {
+  padding-block: $space-16;
+
+  @include respond-to(lg) {
+    padding-block: $space-20;
+  }
+
+  &__header {
+    margin-bottom: $space-8;
+  }
+
+  &__title {
+    @extend %section-heading;
+    font-size: $font-size-2xl;
+    margin-bottom: $space-2;
+  }
+
+  &__subtitle {
+    color: $color-text-muted;
+    font-size: $font-size-md;
+  }
+}
+
+// Screen-reader only
+.sr-only {
+  @include visually-hidden;
+}
+
+// Scroll lock
+.scroll-lock {
+  overflow: hidden;
+}

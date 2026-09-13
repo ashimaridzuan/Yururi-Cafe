@@ -1,0 +1,13 @@
+// ============================================================
+// YURURI CAFE — SASS FUNCTIONS
+// ============================================================
+
+// Tint: mix color with white
+@function tint($color, $amount) {
+  @return mix(white, $color, $amount);
+}
+
+// Shade: mix color with black
+@function shade($color, $amount) {
+  @return mix(black, $color, $amount);
+}

@@ -1,0 +1,99 @@
+// ============================================================
+// YURURI CAFE — MIXINS
+// ============================================================
+
+// Breakpoint helper
+@mixin respond-to($bp) {
+  @if $bp == sm {
+    @media (min-width: $bp-sm) { @content; }
+  } @else if $bp == md {
+    @media (min-width: $bp-md) { @content; }
+  } @else if $bp == lg {
+    @media (min-width: $bp-lg) { @content; }
+  } @else if $bp == xl {
+    @media (min-width: $bp-xl) { @content; }
+  }
+}
+
+// Flex utilities
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@mixin flex-col {
+  display: flex;
+  flex-direction: column;
+}
+
+// Container
+@mixin container {
+  width: 100%;
+  max-width: $container-max;
+  margin-inline: auto;
+  padding-inline: $space-4;
+
+  @include respond-to(md) {
+    padding-inline: $space-8;
+  }
+}
+
+// Card base
+@mixin card-base {
+  background: $color-surface;
+  border-radius: $radius-lg;
+  box-shadow: $shadow-card;
+  border: 1px solid $color-border;
+  transition: transform $transition-spring, box-shadow $transition-base;
+
+  &:hover {
+    transform: translateY(-4px) scale(1.01);
+    box-shadow: $shadow-card-hover;
+  }
+}
+
+// Focus ring
+@mixin focus-ring($color: $color-teal) {
+  &:focus-visible {
+    outline: 2px solid $color;
+    outline-offset: 2px;
+    border-radius: $radius-sm;
+  }
+}
+
+// Module color from map
+@mixin module-colors($module-name) {
+  $colors: map-get($modules, $module-name);
+  background-color: nth($colors, 1);
+
+  .accent {
+    color: nth($colors, 2);
+  }
+}
+
+// Text truncate
+@mixin truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+// Visually hidden (accessible)
+@mixin visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}

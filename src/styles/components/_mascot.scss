@@ -1,0 +1,121 @@
+.mascot {
+  display: flex;
+  align-items: flex-end;
+  gap: $space-4;
+  position: relative;
+
+  &--right {
+    flex-direction: row-reverse;
+  }
+
+  &__figure {
+    flex-shrink: 0;
+    width: 80px;
+    height: 80px;
+    border-radius: $radius-full;
+    background: tint($color-lavender, 20%);
+    @include flex-center;
+    font-size: 3rem;
+    transition: transform $transition-spring;
+    border: 3px solid rgba($color-plum, 0.2);
+    box-shadow: $shadow-card;
+
+    @include respond-to(md) {
+      width: 100px;
+      height: 100px;
+    }
+  }
+
+  // Mood animations
+  &--waving &__figure {
+    animation: mascot-wave 1.2s ease infinite;
+  }
+
+  &--happy &__figure {
+    animation: mascot-bounce 0.6s $transition-spring;
+  }
+
+  &--thinking &__figure {
+    animation: mascot-think 2s ease infinite;
+  }
+
+  &__bubble {
+    background: $color-surface;
+    border: 2px solid $color-border;
+    border-radius: $radius-lg;
+    border-bottom-left-radius: $radius-sm;
+    padding: $space-3 $space-4;
+    box-shadow: $shadow-card;
+    max-width: 280px;
+    position: relative;
+
+    .mascot--right & {
+      border-bottom-left-radius: $radius-lg;
+      border-bottom-right-radius: $radius-sm;
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      bottom: 10px;
+      left: -10px;
+      border: 6px solid transparent;
+      border-right-color: $color-border;
+
+      .mascot--right & {
+        left: auto;
+        right: -10px;
+        border-right-color: transparent;
+        border-left-color: $color-border;
+      }
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 11px;
+      left: -7px;
+      border: 5px solid transparent;
+      border-right-color: $color-surface;
+
+      .mascot--right & {
+        left: auto;
+        right: -7px;
+        border-right-color: transparent;
+        border-left-color: $color-surface;
+      }
+    }
+  }
+
+  &__name {
+    font-size: $font-size-xs;
+    font-weight: $font-weight-bold;
+    color: $color-plum;
+    margin-bottom: $space-1;
+    letter-spacing: 0.03em;
+  }
+
+  &__text {
+    font-size: $font-size-sm;
+    color: $color-text;
+    line-height: $line-height-relaxed;
+  }
+}
+
+@keyframes mascot-wave {
+  0%, 100% { transform: rotate(0deg); }
+  25%       { transform: rotate(-10deg); }
+  75%       { transform: rotate(10deg); }
+}
+
+@keyframes mascot-bounce {
+  0%   { transform: translateY(0); }
+  40%  { transform: translateY(-12px); }
+  70%  { transform: translateY(-5px); }
+  100% { transform: translateY(0); }
+}
+
+@keyframes mascot-think {
+  0%, 100% { transform: rotate(0deg); }
+  50%      { transform: rotate(-5deg); }
+}

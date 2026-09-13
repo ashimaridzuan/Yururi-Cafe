@@ -1,0 +1,120 @@
+// ============================================================
+// YURURI CAFE — DESIGN TOKENS
+// ============================================================
+
+// PASTEL PALETTE (backgrounds, cards)
+$color-mint:       #BFD8D2;
+$color-dusty-rose: #D8BFC5;
+$color-lavender:   #C5BFD8;
+$color-sage:       #D2D8BF;
+$color-mauve:      #D8BFD2;
+$color-warm-beige: #D8C6BF;
+
+// DEEP ACCENT PALETTE (borders, active states, hover)
+$color-teal:       #9dc1c4;
+$color-steel-blue: #82a8b8;
+$color-slate-blue: #738daa;
+$color-indigo:     #707196;
+$color-plum:       #715478;
+
+// SEMANTIC MAPPINGS
+$color-primary:       $color-mint;
+$color-secondary:     $color-dusty-rose;
+$color-accent:        $color-teal;
+$color-accent-dark:   $color-plum;
+$color-surface:       #FAFAF8;
+$color-surface-alt:   #F4F1EE;
+$color-text:          #3a3a4a;
+$color-text-muted:    #7a7a8a;
+$color-text-light:    #ffffff;
+$color-border:        rgba($color-plum, 0.15);
+$color-border-active: $color-teal;
+
+// SUCCESS / ERROR
+$color-success: #6bab9c;
+$color-error:   #c47a8a;
+$color-warning: #c4a87a;
+
+// MODULE COLOR MAP: (bg, accent) — used with @each
+$modules: (
+  'hiragana':  ($color-mint,       $color-teal),
+  'katakana':  ($color-dusty-rose, $color-plum),
+  'vocab':     ($color-lavender,   $color-indigo),
+  'grammar':   ($color-sage,       $color-slate-blue),
+  'quiz':      ($color-mauve,      $color-plum),
+  'progress':  ($color-warm-beige, $color-steel-blue),
+);
+
+// TYPOGRAPHY
+$font-primary: 'Noto Sans JP', 'Hiragino Sans', 'Yu Gothic', sans-serif;
+$font-display: 'Zen Maru Gothic', 'Noto Serif JP', serif;
+
+$font-size-xs:    0.75rem;
+$font-size-sm:    0.875rem;
+$font-size-base:  1rem;
+$font-size-md:    1.125rem;
+$font-size-lg:    1.25rem;
+$font-size-xl:    1.5rem;
+$font-size-2xl:   2rem;
+$font-size-3xl:   2.5rem;
+$font-size-jp-lg: 2.5rem;
+$font-size-jp-xl: 4rem;
+
+$font-weight-light:   300;
+$font-weight-regular: 400;
+$font-weight-medium:  500;
+$font-weight-bold:    700;
+
+$line-height-tight:  1.25;
+$line-height-base:   1.6;
+$line-height-relaxed: 1.8;
+
+// SPACING (4-point scale)
+$space-1:  0.25rem;
+$space-2:  0.5rem;
+$space-3:  0.75rem;
+$space-4:  1rem;
+$space-5:  1.25rem;
+$space-6:  1.5rem;
+$space-8:  2rem;
+$space-10: 2.5rem;
+$space-12: 3rem;
+$space-16: 4rem;
+$space-20: 5rem;
+$space-24: 6rem;
+
+// SHADOWS
+$shadow-sm:         0 1px 3px rgba($color-indigo, 0.08);
+$shadow-card:       0 2px 8px rgba($color-indigo, 0.12);
+$shadow-card-hover: 0 8px 20px rgba($color-plum, 0.20);
+$shadow-lg:         0 8px 24px rgba($color-plum, 0.18);
+$shadow-inner:      inset 0 2px 6px rgba($color-plum, 0.08);
+
+// TRANSITIONS
+$transition-fast:   0.15s ease;
+$transition-base:   0.3s ease;
+$transition-spring: 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+$transition-flip:   0.6s cubic-bezier(0.4, 0.0, 0.2, 1);
+
+// BREAKPOINTS
+$bp-sm: 480px;
+$bp-md: 768px;
+$bp-lg: 1024px;
+$bp-xl: 1280px;
+
+// BORDER RADIUS
+$radius-sm:   0.375rem;
+$radius-md:   0.75rem;
+$radius-lg:   1.25rem;
+$radius-xl:   2rem;
+$radius-full: 9999px;
+
+// Z-INDEX
+$z-nav:     100;
+$z-modal:   200;
+$z-tooltip: 300;
+
+// LAYOUT
+$header-height:   4.5rem;
+$container-max:   1200px;
+$content-max:     800px;

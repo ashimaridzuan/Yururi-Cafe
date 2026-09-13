@@ -1,0 +1,122 @@
+.nav {
+  &__list {
+    @include flex-center;
+    gap: $space-1;
+  }
+
+  &__item {
+    position: relative;
+  }
+
+  &__link {
+    display: inline-flex;
+    align-items: center;
+    gap: $space-1;
+    padding: $space-2 $space-3;
+    border-radius: $radius-md;
+    font-size: $font-size-sm;
+    font-weight: $font-weight-medium;
+    color: $color-text-muted;
+    transition: color $transition-fast, background-color $transition-fast;
+
+    @include focus-ring;
+
+    &:hover {
+      color: $color-text;
+      background-color: rgba($color-mint, 0.4);
+    }
+
+    &--active {
+      color: $color-plum;
+      background-color: rgba($color-mauve, 0.5);
+      font-weight: $font-weight-bold;
+    }
+
+    .nav__icon {
+      font-size: $font-size-md;
+    }
+
+    .nav__label {
+      display: none;
+
+      @include respond-to(lg) {
+        display: inline;
+      }
+    }
+  }
+}
+
+// Mobile nav drawer
+.nav-mobile {
+  display: flex;
+  flex-direction: column;
+  gap: $space-2;
+  padding: $space-4;
+
+  &__link {
+    @include flex-center;
+    gap: $space-3;
+    padding: $space-3 $space-4;
+    border-radius: $radius-md;
+    font-size: $font-size-md;
+    font-weight: $font-weight-medium;
+    color: $color-text;
+    transition: background-color $transition-fast;
+
+    &:hover {
+      background-color: rgba($color-mint, 0.4);
+    }
+
+    &--active {
+      background-color: rgba($color-mauve, 0.5);
+      color: $color-plum;
+    }
+  }
+}
+
+// Hamburger button
+.hamburger {
+  @include flex-col;
+  gap: 5px;
+  padding: $space-2;
+  border-radius: $radius-sm;
+  @include focus-ring;
+
+  &__line {
+    width: 22px;
+    height: 2px;
+    background-color: $color-text;
+    border-radius: $radius-full;
+    transition: transform $transition-base, opacity $transition-base;
+    transform-origin: center;
+  }
+
+  &--open &__line:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  &--open &__line:nth-child(2) { opacity: 0; }
+  &--open &__line:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+}
+
+// Mobile drawer overlay
+.drawer {
+  position: fixed;
+  inset: 0;
+  z-index: $z-modal;
+
+  &__overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba($color-text, 0.3);
+    backdrop-filter: blur(2px);
+  }
+
+  &__panel {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: min(320px, 85vw);
+    background: $color-surface;
+    padding-top: $header-height;
+    box-shadow: $shadow-lg;
+  }
+}

@@ -1,0 +1,34 @@
+.badge {
+  @extend %tag;
+  gap: $space-1;
+
+  &--learned {
+    background: tint($color-success, 50%);
+    color: shade($color-success, 30%);
+  }
+
+  &--xp {
+    background: tint($color-lavender, 30%);
+    color: $color-indigo;
+  }
+
+  &--streak {
+    background: tint($color-dusty-rose, 30%);
+    color: $color-plum;
+  }
+
+  &--beginner {
+    background: tint($color-mint, 30%);
+    color: shade($color-teal, 20%);
+  }
+
+  &--intermediate {
+    background: tint($color-lavender, 30%);
+    color: $color-indigo;
+  }
+
+  &--level {
+    background: tint($color-warm-beige, 20%);
+    color: shade($color-steel-blue, 20%);
+  }
+}

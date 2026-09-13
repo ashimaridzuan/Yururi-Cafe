@@ -1,0 +1,63 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: $header-height;
+  background: rgba($color-surface, 0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid $color-border;
+  z-index: $z-nav;
+  transition: box-shadow $transition-base;
+
+  &--scrolled {
+    box-shadow: $shadow-sm;
+  }
+
+  &__inner {
+    @include container;
+    @include flex-between;
+    height: 100%;
+  }
+
+  &__logo {
+    @include flex-center;
+    gap: $space-2;
+    font-family: $font-display;
+    font-weight: $font-weight-bold;
+    font-size: $font-size-lg;
+    color: $color-plum;
+    transition: opacity $transition-fast;
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+
+  &__logo-icon {
+    font-size: $font-size-2xl;
+    line-height: 1;
+  }
+
+  &__logo-text {
+    display: none;
+
+    @include respond-to(sm) {
+      display: block;
+    }
+  }
+
+  &__logo-sub {
+    font-size: $font-size-xs;
+    font-weight: $font-weight-regular;
+    color: $color-text-muted;
+    display: block;
+    letter-spacing: 0.03em;
+  }
+
+  &__actions {
+    @include flex-center;
+    gap: $space-2;
+  }
+}

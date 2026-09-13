@@ -1,0 +1,188 @@
+.grammar-page {
+  padding-block: $space-8 $space-16;
+
+  &__inner {
+    @include container;
+    max-width: $content-max;
+  }
+
+  &__filters {
+    @include flex-center;
+    gap: $space-2;
+    flex-wrap: wrap;
+    margin-bottom: $space-8;
+  }
+
+  &__filter-btn {
+    padding: $space-2 $space-4;
+    border-radius: $radius-full;
+    border: 2px solid $color-border;
+    background: $color-surface;
+    font-size: $font-size-sm;
+    font-weight: $font-weight-medium;
+    cursor: pointer;
+    color: $color-text-muted;
+    transition: all $transition-fast;
+
+    @include focus-ring;
+
+    &:hover {
+      border-color: $color-teal;
+      color: $color-text;
+    }
+
+    &--active {
+      background: $color-plum;
+      border-color: $color-plum;
+      color: $color-text-light;
+    }
+  }
+
+  &__list {
+    @include flex-col;
+    gap: $space-5;
+  }
+}
+
+.grammar-card {
+  background: $color-surface;
+  border-radius: $radius-lg;
+  border: 1px solid $color-border;
+  overflow: hidden;
+  transition: transform $transition-spring, box-shadow $transition-base;
+
+  @include focus-ring;
+
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: $shadow-card-hover;
+  }
+
+  &__header {
+    padding: $space-4 $space-6;
+    display: flex;
+    align-items: center;
+    gap: $space-4;
+    border-bottom: 1px solid $color-border;
+    background: $color-surface-alt;
+  }
+
+  &__pattern {
+    font-family: $font-display;
+    font-size: $font-size-jp-xl;
+    font-weight: $font-weight-bold;
+    color: $color-plum;
+    line-height: 1;
+    min-width: 3rem;
+    text-align: center;
+  }
+
+  &__meta {
+    flex: 1;
+  }
+
+  &__label {
+    font-size: $font-size-md;
+    font-weight: $font-weight-bold;
+    color: $color-text;
+  }
+
+  &__reading {
+    font-size: $font-size-sm;
+    color: $color-text-muted;
+    font-style: italic;
+  }
+
+  &__body {
+    padding: $space-5 $space-6;
+    @include flex-col;
+    gap: $space-4;
+  }
+
+  &__structure {
+    font-family: $font-primary;
+    font-size: $font-size-sm;
+    color: $color-text-muted;
+    background: $color-surface-alt;
+    padding: $space-2 $space-3;
+    border-radius: $radius-md;
+    border-left: 3px solid $color-slate-blue;
+    font-style: italic;
+  }
+
+  &__meaning {
+    font-size: $font-size-base;
+    color: $color-text;
+    line-height: $line-height-relaxed;
+  }
+
+  &__examples {
+    @include flex-col;
+    gap: $space-3;
+  }
+
+  &__snoopy-tip {
+    background: tint($color-lavender, 40%);
+    border: 1px solid rgba($color-indigo, 0.2);
+    border-radius: $radius-md;
+    padding: $space-3 $space-4;
+    font-size: $font-size-sm;
+    color: $color-text;
+    display: flex;
+    gap: $space-2;
+    align-items: flex-start;
+
+    &-icon {
+      font-size: $font-size-md;
+      flex-shrink: 0;
+    }
+  }
+
+  &__mistake {
+    background: tint($color-error, 60%);
+    border: 1px solid rgba($color-error, 0.25);
+    border-radius: $radius-md;
+    padding: $space-3 $space-4;
+    font-size: $font-size-sm;
+    color: shade($color-error, 20%);
+    display: flex;
+    gap: $space-2;
+    align-items: flex-start;
+  }
+
+  // LEVEL MODIFIERS
+  &--beginner {
+    border-left: 4px solid $color-teal;
+  }
+
+  &--intermediate {
+    border-left: 4px solid $color-indigo;
+  }
+}
+
+.grammar-example {
+  background: $color-surface-alt;
+  border-radius: $radius-md;
+  padding: $space-3 $space-4;
+  border-left: 3px solid $color-teal;
+
+  &__japanese {
+    font-family: $font-display;
+    font-size: $font-size-lg;
+    color: $color-text;
+    margin-bottom: $space-1;
+  }
+
+  &__romaji {
+    font-size: $font-size-sm;
+    color: $color-text-muted;
+    font-style: italic;
+    margin-bottom: $space-1;
+  }
+
+  &__english {
+    font-size: $font-size-sm;
+    color: $color-text;
+    font-weight: $font-weight-medium;
+  }
+}
